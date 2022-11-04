@@ -1,0 +1,24 @@
+@import 'styles/colors.scss';
+
+body {
+  margin: 0;
+  background-color: #FAFAFA;
+  font-family: 'Open Sans';
+  font-size: 14px;
+}
+
+.vertical-and-horizontal-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  &-light-blue {
+    color: $blue-light;
+  }
+
+  &-size-13px {
+    size: 13px
+  }
+}
