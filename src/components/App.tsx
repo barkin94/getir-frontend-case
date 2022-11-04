@@ -1,10 +1,10 @@
 import './App.css';
-import { TopNavBar } from './TopNavbar/TopNavBar';
+import { Header } from './Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <TopNavBar />
+      <Header />
     </div>
   );
 }

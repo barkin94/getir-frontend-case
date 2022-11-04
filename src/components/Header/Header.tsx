@@ -1,8 +1,8 @@
-import styles from './TopNavBar.module.scss'
+import styles from './Header.module.scss'
 
 const { container } = styles;
 
-export function TopNavBar() {
+export function Header() {
 	return (
     <div className={`${container} vertical-and-horizontal-center`}>
       <img src="./Logo.png" alt="" />
