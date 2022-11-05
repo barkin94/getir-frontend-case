@@ -16,7 +16,7 @@ export function ProductShowcase({ item }: ProductShowcaseProps) {
 				<img className="h-full w-full" src="./favicon.ico" alt="" />
 			</div>
 			<Price
-				currency="TRY"
+				currencyIcon="TRY"
 				value={item.price}
 				className="text-blue-light"
 			/>

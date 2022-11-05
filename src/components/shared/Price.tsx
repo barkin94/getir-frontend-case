@@ -1,16 +1,20 @@
 
-export function Price({ currency, value, className }: PriceProps) {
-	const currencies: Record<Currency, string> = {
-		TRY: '₺',
-		USD: '$'
-	}
-	return <div className={className}>{`${currencies[currency]} ${value}`}</div>;
+export function Price({ currencyIcon, value, className }: PriceProps) {
+	const currencyIcons: Record<CurrencyIcon, string> = {
+		TRY: "₺",
+		USD: "$",
+	};
+	return (
+		<div
+			className={className}
+		>{`${currencyIcons[currencyIcon]} ${value}`}</div>
+	);
 }
 
 export interface PriceProps {
-	currency: Currency,
+	currencyIcon: CurrencyIcon;
 	value: number;
 	className?: string;
 }
 
-export type Currency = 'TRY' | 'USD'
+export type CurrencyIcon = 'TRY' | 'USD'

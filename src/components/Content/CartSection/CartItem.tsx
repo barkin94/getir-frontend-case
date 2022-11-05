@@ -17,7 +17,7 @@ export function CartItem({ item, index }: CartItemProps) {
 		<div className="flex">
 			<div className="flex-grow">
 				<div>{item.name}</div>
-				<Price currency="TRY" value={item.price} />
+				<Price currencyIcon="TRY" value={item.price} />
 			</div>
 			<div>
 				<span

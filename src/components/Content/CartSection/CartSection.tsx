@@ -6,7 +6,7 @@ export function CartSection() {
 	const { items, totalCost } = useAppSelector((state) => state.cart);
 
 	return (
-		<div className="">
+		<div className="bg-white border-blue-light rounded-sm border-8">
 			{items.length > 0 && (
 				<>
 					{items.map((item, index) => (
@@ -17,7 +17,7 @@ export function CartSection() {
 					))}
 					<Price
 						className="float-right"
-						currency="TRY"
+						currencyIcon="TRY"
 						value={totalCost}
 					/>
 				</>
