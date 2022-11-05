@@ -11,7 +11,7 @@ export function CheckBox({
 	};
 
 	return (
-		<label>
+		<label className="text-grey-dark-2">
 			<input type="checkbox" checked={checked} onChange={handleChange} />
 			{label}
 		</label>
