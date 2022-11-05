@@ -4,9 +4,10 @@ import { useGetItemsQuery } from "../../../redux/apis/items";
 import { Pagination } from "../../shared/Pagination";
 import { ProductShowcase } from "./ProductShowcase";
 
-const ITEMS_PER_PAGE = 16;
 export function ProductsSection() {
-	const { data, error, isLoading } = useGetItemsQuery();
+	const ITEMS_PER_PAGE = 16;
+
+	const { data } = useGetItemsQuery();
 	const [activePage, setActivePage] = useState(0);
 	const [pageCount, setPageCount] = useState(0);
 	const [displayedItems, setDisplayedItems] = useState<Item[]>([]);
