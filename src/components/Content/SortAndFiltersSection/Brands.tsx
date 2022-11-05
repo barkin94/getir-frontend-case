@@ -3,7 +3,7 @@ import { useGetItemsQuery } from "../../../redux/apis/items";
 import { Filter } from "../../shared/Filter";
 
 export function Brands() {
-	const { data, error, isLoading } = useGetItemsQuery();
+	const { data } = useGetItemsQuery();
 
 	return (
 		<div>
