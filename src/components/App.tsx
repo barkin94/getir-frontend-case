@@ -1,11 +1,10 @@
-import './App.css';
 import { Content } from './Content/Content';
-import { Footer } from './Footer/Footer';
-import { Header } from './Header/Header';
+import { Footer } from './Footer';
+import { Header } from './Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-lighter-grey">
       <Header />
       <Content />
       <Footer />
