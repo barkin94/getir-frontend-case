@@ -48,7 +48,7 @@ export function Filter<DataType>({ data, filterField }: FilterProps<DataType>) {
 						label={`${name}`}
 						onClick={() => handleCheckClick(index)}
 					/>
-					<span className="">{`(${count})`}</span>
+					<span className="text-grey-light-2">{`(${count})`}</span>
 				</div>
 			))}
 		</>

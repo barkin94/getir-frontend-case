@@ -18,7 +18,7 @@ export function Sorting() {
 
 	return (
 		<div>
-			<div className="text-13px text-blueish-dark-grey">Sorting</div>
+			<div className="text-13px text-grey-dark-blueish">Sorting</div>
 			<div className="box-container">
 				<RadioList<SortingOptions>
 					items={sortingOptions}
