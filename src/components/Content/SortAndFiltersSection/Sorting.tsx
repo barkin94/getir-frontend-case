@@ -1,6 +1,6 @@
-import { useAppDispatch } from "../../../../redux/hooks";
-import { setSorting, SortingOptions } from "../../../../redux/slices/products";
-import { RadioList, RadioNewSelection, RadioListProps } from "../../../shared/RadioList";
+import { useAppDispatch } from "../../../redux/hooks";
+import { setSorting, SortingOptions } from "../../../redux/slices/products";
+import { RadioList, RadioNewSelection, RadioListProps } from "../../shared/RadioList";
 
 export function Sorting() {
   const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ export function Sorting() {
 
 	return (
 		<div>
-			<div className="text-size-13px text-blueish-dark-grey">Sorting</div>
+			<div className="text-13px text-blueish-dark-grey">Sorting</div>
 			<div className="box-container">
 				<RadioList<SortingOptions>
 					items={sortingOptions}

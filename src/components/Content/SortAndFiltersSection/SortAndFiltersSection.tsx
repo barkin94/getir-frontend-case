@@ -1,9 +1,8 @@
 
-import { Brands } from "./Brands/Brands";
-import { Sorting } from "./Sorting/Sorting";
+import { Brands } from "./Brands";
+import { Sorting } from "./Sorting";
 
 export function SortAndFiltersSection() {
-
 	return (
 		<section>
 			<Sorting />

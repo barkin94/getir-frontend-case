@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { CheckBox } from "../CheckBox";
-import { Input } from "../Input";
+import { CheckBox } from "./CheckBox";
+import { Input } from "./Input";
 
 export function Filter<DataType>({ data, filterField }: FilterProps<DataType>) {
 	const [items, setItems] = useState<FilterItem[]>([]);

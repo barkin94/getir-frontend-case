@@ -1,42 +1,15 @@
-@import 'styles/colors.scss';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   margin: 0;
-  background-color: $lighter-grey;
   font-family: 'Open Sans';
   font-size: 14px;
 }
 
-.vertical-and-horizontal-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.text {
-  &-light-blue {
-    color: $blue-light;
-  }
-
-  &-blueish-dark-grey {
-    color: $blueish-dark-grey;
-  }
-
-  &-dark-grey {
-    color: $dark-grey;
-  }
-
-  &-size-13px {
-    font-size: 13px;
-  }
-}
-
 .box-container {
-  background-color: $white;
+  background-color: white;
   padding: 24px;
   box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
   border-radius: 2px;
