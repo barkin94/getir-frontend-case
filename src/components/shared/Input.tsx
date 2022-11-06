@@ -5,6 +5,7 @@ export function Input({ placeholder, onChange }: InputProps) {
 
 	return <input
 		type="text"
+		className="border-2 rounded-sm w-full p-2 border-grey-light-3 placeholder-grey-dark-1"
 		onChange={handleChange}
 		placeholder={placeholder}
 	/>;

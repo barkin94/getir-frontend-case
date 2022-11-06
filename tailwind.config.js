@@ -9,7 +9,8 @@ module.exports = {
 				"grey-dark-1": "#6F6F6F",
 				"grey-dark-2": "#525252",
 				"grey-dark-blueish": "#697488",
-				"grey-light-3": "#FAFAFA",
+				"grey-light-4": "#FAFAFA",
+				"grey-light-3": "E0E0E0",
 				"grey-light-2": "#A8A8A8",
 				"grey-light-1": "#E5E5E5",
 				"purple-light-1": "#F2F0FD",
@@ -17,6 +18,7 @@ module.exports = {
 				"white-dark": "#FEFEFE",
 			},
 			fontSize: {
+				"12px": "12px",
 				"13px": "13px",
 				"14px": "14px",
 				"20px": "20px",

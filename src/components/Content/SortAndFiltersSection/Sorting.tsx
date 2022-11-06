@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../../../redux/hooks";
 import { setSorting, SortingOptions } from "../../../redux/slices/products";
 import { RadioList, RadioNewSelection, RadioListProps } from "../../shared/RadioList";
+import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
 
 export function Sorting() {
   const dispatch = useAppDispatch();
@@ -17,14 +18,14 @@ export function Sorting() {
   };
 
 	return (
-		<div>
-			<div className="text-13px text-grey-dark-blueish">Sorting</div>
-			<div className="box-container">
+		<>
+			<div className="text-13px text-grey-dark-blueish font-semibold mb-2">Sorting</div>
+			<WhiteBoxContainer>
 				<RadioList<SortingOptions>
 					items={sortingOptions}
 					onChange={handleSelection}
 				/>
-			</div>
-		</div>
+			</WhiteBoxContainer>
+		</>
 	);
 }

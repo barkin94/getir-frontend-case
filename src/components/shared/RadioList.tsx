@@ -34,15 +34,16 @@ export function RadioList<ValueType>({
 	return (
 		<>
 			{radioItems.map((item, index) => (
-				<div key={index}>
+				<div className="mb-2" key={index}>
 					<label>
 						<input
 							type="radio"
 							checked={item.checked}
-							onChange={(e) => console.log(e)}
-							onClick={() => handleClick(item)}
+							onChange={(e) => handleClick(item)}
 						/>
-						{item.label}
+						<span className="ml-3 text-grey-dark-2">
+							{item.label}
+						</span>
 					</label>
 					{display === "block" && <br />}
 				</div>
