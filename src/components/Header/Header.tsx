@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { setCartModalVisibility } from "../../redux/slices/cart";
-import { Cart } from "./CartModalContent/Cart";
+import { Cart } from "./Cart/Cart";
 import { Price } from "../shared/Price";
 
 export function Header() {
