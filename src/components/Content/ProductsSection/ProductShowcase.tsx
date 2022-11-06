@@ -12,18 +12,18 @@ export function ProductShowcase({ item }: ProductShowcaseProps) {
 
 	return (
 		<div className="h-200px">
-			<div className="border-purple-light-2 border-2 bg-white-dark h-115px p-3">
+			<div className="border-purple-light-2 border-2 bg-white-dark h-115px p-3 rounded-xl">
 				<img className="h-full w-full" src="./favicon.ico" alt="" />
 			</div>
 			<Price
 				currencyIcon="TRY"
 				value={item.price}
-				className="text-blue-light"
+				className="text-blue-light font-semibold"
 			/>
-			<div>{item.name}</div>
+			<div className="font-semibold">{item.name}</div>
 			<button
 				onClick={handleAddBtnClick}
-				className="bg-blue-light text-white text-center w-full"
+				className="bg-blue-light text-12px text-white text-center w-full rounded-sm"
 			>
 				Add
 			</button>
