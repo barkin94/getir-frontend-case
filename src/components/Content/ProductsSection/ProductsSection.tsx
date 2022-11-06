@@ -1,22 +1,33 @@
+import { useSearchParams } from "react-router-dom";
 import { useGetItemsQuery } from "../../../redux/apis/items";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setPagination } from "../../../redux/slices/products";
 import { Pagination } from "../../shared/Pagination";
 import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
 import { ProductShowcase } from "./ProductShowcase";
 
 export function ProductsSection() {
 	const ITEMS_PER_PAGE = 16;
+
+	const [searchParams, setSearchParams] = useSearchParams();
 	
-	const dispatch = useAppDispatch();
-	const { sorting, pagination } = useAppSelector(state => state.products)
+	const activePage = parseInt(searchParams.get("p") ?? "")
+	const activeSortType = searchParams.get("s_type") ?? "";
+	const activeSortField = searchParams.get("s_field") ?? "";
+
 	const { data } = useGetItemsQuery({
-		sorting,
-		pagination
+		sorting: {
+			// TODO: fix types
+			field: activeSortField as any,
+			type: activeSortType as any
+		},
+		pagination: {
+			page: activePage,
+			limit: ITEMS_PER_PAGE
+		},
 	});
 
 	const handlePageChange = (newPage: number) => {
-		dispatch(setPagination({ ...pagination, page: newPage} as any));
+		searchParams.set("p", newPage.toString());
+		setSearchParams(searchParams)
 	} 
 	
 	return (
@@ -42,7 +53,7 @@ export function ProductsSection() {
 			{data && (
 				<div className="flex justify-center">
 					<Pagination
-						activePage={pagination?.page}
+						activePage={activePage}
 						pageCount={Math.ceil(data.count / ITEMS_PER_PAGE)}
 						onPageChange={handlePageChange}
 					/>
