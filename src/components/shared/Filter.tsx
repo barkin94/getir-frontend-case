@@ -1,67 +1,79 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckBox } from "./CheckBox";
 import { Input } from "./Input";
 
-export function Filter<DataType>({ data, filterField }: FilterProps<DataType>) {
-	const [items, setItems] = useState<FilterItem[]>([]);
-	
+export function Filter({
+	filterItems,
+	searchPlaceholder,
+	onFiltersChanged,
+}: FilterProps) {
+	const [displayedItems, setDisplayedItems] = useState<FilterItem[]>([]);
+	const [checkedItems, setCheckedItems] = useState([]);
+
+
+	const sortedFilterItems = useMemo(
+		() => [...filterItems.sort((a, b) => b.count - a.count)],
+		[filterItems]
+	);
+
 	useEffect(() => {
-		const fieldNameToCountMap: Record<string, number> = {}
-		
-		data.forEach(item => {
-			if (!fieldNameToCountMap[item[filterField] as string])
-				fieldNameToCountMap[item[filterField] as string] = 0;
-			
-			fieldNameToCountMap[item[filterField] as string]++
-		})
-
-		if (Object.keys(fieldNameToCountMap).length === 0)
-			return;
-		const filterItems: FilterItem[] = [];
-		
-		Object.keys(fieldNameToCountMap).forEach((fieldName) => {
-			filterItems.push({
-				checked: false,
-				name: fieldName,
-				count: fieldNameToCountMap[fieldName],
-			});
-		});
-
-		filterItems.sort((a, b) => b.count - a.count)
-		filterItems.unshift({ checked: false, name: 'All', count: data.length })
-
-		setItems(filterItems);
-	}, [data, filterField])
+		setDisplayedItems([...sortedFilterItems]);
+	}, [sortedFilterItems]);
 
 	const handleCheckClick = (index: number) => {
-		items[index] = { ...items[index], checked: !items[index].checked };
-		setItems(items);
-	}
+		//onFiltersChanged && onFiltersChanged()
+	};
+
+	const handleAllCheckClick = () => {
+		onFiltersChanged && onFiltersChanged([]);
+	};
+
+	const handleInputChange = (searchText: string) => {
+		setDisplayedItems(
+			sortedFilterItems.filter((s) =>
+				s.name.match(new RegExp(searchText, "i"))
+			)
+		);
+	};
 
 	return (
-		<>
-			<Input />
-			{items.map(({ checked, name, count }, index) => (
-				<div key={index}>
+		<div className="flex flex-col h-full">
+			<div className="mb-3">
+				<Input
+					placeholder={searchPlaceholder}
+					onChange={handleInputChange}
+				/>
+			</div>
+			<div className="overflow-y-auto flex-grow h-full">
+				<div className="mb-3">
 					<CheckBox
-						checked={checked}
-						label={`${name}`}
-						onClick={() => handleCheckClick(index)}
+						label="All"
+						onClick={() => handleAllCheckClick()}
 					/>
-					<span className="text-grey-light-2">{`(${count})`}</span>
+					<span className="text-grey-light-2 ml-1">{`(${sortedFilterItems.length})`}</span>
 				</div>
-			))}
-		</>
+
+				{displayedItems.map(({ name, count }, index) => (
+					<div className="mb-3" key={index}>
+						<CheckBox
+							label={`${name}`}
+							onClick={() => handleCheckClick(index)}
+						/>
+						<span className="text-grey-light-2 ml-1">{`(${count})`}</span>
+					</div>
+				))}
+			</div>
+		</div>
 	);
 }
 
-export interface FilterProps<DataType> {
-	data: DataType[]
-	filterField: (keyof DataType)
+export interface FilterProps {
+	filterItems: FilterItem[];
+	searchPlaceholder?: string;
+	onFiltersChanged?: (currentlyCheckedFilters: FilterItem[]) => void
 }
 
-interface FilterItem {
-	checked: boolean;
-	name: string | JSX.Element;
+export interface FilterItem {
+	name: string;
 	count: number;
 }

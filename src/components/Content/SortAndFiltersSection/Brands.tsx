@@ -1,16 +1,33 @@
-import { Item } from "../../../core/models/item";
-import { useGetItemsQuery } from "../../../redux/apis/items";
-import { Filter } from "../../shared/Filter";
+
+import { useMemo } from "react";
+import { useGetBrandsQuery } from "../../../redux/apis/companies";
+import { Filter, FilterItem } from "../../shared/Filter";
+import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
 
 export function Brands() {
-	const { data } = useGetItemsQuery();
+	const { data } = useGetBrandsQuery();
+
+	const filterItems = useMemo<FilterItem[]>(() => data
+		? Object.keys(data).map(tagName => ({
+				name: tagName,
+				count: data[tagName],
+			}))
+		: []
+	, [data])
 
 	return (
-		<div>
-			<div className="text-13px text-grey-dark-blueish">Brands</div>
-			<div className="box-container">
-				<Filter<Item> data={data || []} filterField={"manufacturer"}  />
+		<>
+			<div className="text-13px text-grey-dark-blueish font-semibold mb-2">
+				Brands
 			</div>
-		</div>
+			<div className="h-60">
+				<WhiteBoxContainer>
+					<Filter
+						filterItems={filterItems}
+						searchPlaceholder="Search brand"
+					/>
+				</WhiteBoxContainer>
+			</div>
+		</>
 	);
 }
