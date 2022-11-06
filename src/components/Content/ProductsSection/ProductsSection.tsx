@@ -44,7 +44,7 @@ export function ProductsSection() {
 			</div>
 			<WhiteBoxContainer>
 				{data && (
-					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
 						{data.result.map((item, index) => (
 							<ProductShowcase
 								key={`${index}${Date.now()}`}
@@ -56,7 +56,7 @@ export function ProductsSection() {
 			</WhiteBoxContainer>
 
 			{data && (
-				<div className="flex justify-center">
+				<div className="flex justify-center mt-8">
 					<Pagination
 						activePage={activePage}
 						pageCount={Math.ceil(data.count / ITEMS_PER_PAGE)}

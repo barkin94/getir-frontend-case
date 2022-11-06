@@ -11,22 +11,28 @@ export function ProductShowcase({ item }: ProductShowcaseProps) {
 	}
 
 	return (
-		<div className="h-200px">
-			<div className="border-purple-light-2 border-2 bg-white-dark h-115px p-3 rounded-xl">
+		<div className="flex flex-col h-210px w-120px">
+			<div className="border-purple-light-2 border-2 bg-white-dark h-120px w-120px p-3 rounded-xl">
 				<img className="h-full w-full" src="./favicon.ico" alt="" />
 			</div>
-			<Price
-				currencyIcon="TRY"
-				value={item.price}
-				className="text-blue-light font-semibold"
-			/>
-			<div className="font-semibold">{item.name}</div>
-			<button
-				onClick={handleAddBtnClick}
-				className="bg-blue-light text-12px text-white text-center w-full rounded-sm"
-			>
-				Add
-			</button>
+			<div className="flex flex-col flex-grow">
+				<div className="flex-grow">
+					<Price
+						currencyIcon="TRY"
+						value={item.price}
+						className="text-blue-light font-semibold"
+					/>
+					<div className="font-semibold">
+						{item.name}
+					</div>
+				</div>
+				<button
+					onClick={handleAddBtnClick}
+					className="bg-blue-light text-12px text-white text-center w-full rounded-sm"
+				>
+					Add
+				</button>
+			</div>
 		</div>
 	);
 }
