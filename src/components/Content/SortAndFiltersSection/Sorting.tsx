@@ -1,5 +1,6 @@
+import { SortingOptions } from "../../../redux/helpers";
 import { useAppDispatch } from "../../../redux/hooks";
-import { setSorting, SortingOptions } from "../../../redux/slices/products";
+import { setSorting } from "../../../redux/slices/products";
 import { RadioList, RadioNewSelection, RadioListProps } from "../../shared/RadioList";
 import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
 

@@ -1,34 +1,43 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Item } from "../../core/models/item";
+import { FilterOptions, PagingOptions, SortingOptions } from "../helpers";
 
 const initialState: ProductsState = {
-  sorting: { type: "asc", field: "price" },
-  brands: [],
-  tags: [],
-  products: [],
+	sorting: { type: "asc", field: "price" },
+	pagination: {
+		limit: 16,
+		page: 0
+	},
+	filters: []
 };
 
 export const productsSlice = createSlice({
 	initialState,
-	name: 'products',
+	name: "products",
 	reducers: {
-		setSorting: (state, action: PayloadAction<ProductsState["sorting"]>) => {
+		setSorting: (
+			state,
+			action: PayloadAction<ProductsState["sorting"]>
+		) => {
 			state.sorting = action.payload;
 		},
-	}
-})
+		setFilters: (
+			state,
+			action: PayloadAction<ProductsState["filters"]>
+		) => {},
+		setPagination: (
+			state,
+			action: PayloadAction<ProductsState["pagination"]>
+		) => {
+			state.pagination = action.payload;
+		},
+	},
+});
 
-export const { setSorting } = productsSlice.actions;
+export const { setSorting, setFilters, setPagination } = productsSlice.actions;
 
 export interface ProductsState {
-	sorting: { type: 'asc'|'desc', field: Extract<keyof Item, 'price'|'added'> },
-	brands: string[],
-	tags: string[],
-	products: Item[]
-}
-
-export interface SortingOptions {
-  type: "asc" | "desc";
-  field: Extract<keyof Item, "price" | "added">;
+	sorting: SortingOptions;
+	filters: FilterOptions[];
+	pagination: PagingOptions;
 }
 
