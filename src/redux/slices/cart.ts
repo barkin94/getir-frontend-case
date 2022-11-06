@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: CartState = {
 	items: [],
-	totalCost: 0
+	totalCost: 0,
+	modalVisible: false
 };
 
 export const cartSlice = createSlice({
@@ -58,6 +59,10 @@ export const cartSlice = createSlice({
 			state.items = items;
 			state.totalCost = calculateTotalCost(items);
 		},
+
+		setCartModalVisibility: (state, { payload }: PayloadAction<boolean>) => {
+			state.modalVisible = payload
+		},
 	},
 });
 
@@ -65,12 +70,17 @@ function calculateTotalCost(items: CartItemDetail[]) {
 	return items.reduce((cost, { price, count }) => (cost += price * count), 0)
 }
 
-export const { addItemToCart, decreaseItemCountByIndex, increaseItemCountByIndex } =
-	cartSlice.actions;
+export const {
+	addItemToCart,
+	decreaseItemCountByIndex,
+	increaseItemCountByIndex,
+	setCartModalVisibility,
+} = cartSlice.actions;
 
 export interface CartState {
 	items: CartItemDetail[];
 	totalCost: number;
+	modalVisible: boolean;
 }
 
 export type CartItemDetail = {
