@@ -22,12 +22,14 @@ export function Cart() {
 								<hr className="mb-4"></hr>
 							</>
 						))}
-						<div className="border-2 p-2 border-blue-light">
-							<Price
-								className="float-right text-blue-light relative "
-								currencyIcon="TRY"
-								value={totalCost}
-							/>
+						<div className="flex flex-row-reverse">
+							<div className="border-2 px-3 py-2 border-blue-light">
+								<Price
+									className="text-blue-light"
+									currencyIcon="TRY"
+									value={totalCost}
+								/>
+							</div>
 						</div>
 					</>
 				)}
