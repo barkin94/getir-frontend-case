@@ -5,9 +5,9 @@ export function Price({ currencyIcon, value, className }: PriceProps) {
 		USD: "$",
 	};
 	return (
-		<div
-			className={className}
-		>{`${currencyIcons[currencyIcon]} ${value}`}</div>
+		<div className={className}>
+			{`${currencyIcons[currencyIcon]} ${value}`}
+		</div>
 	);
 }
 

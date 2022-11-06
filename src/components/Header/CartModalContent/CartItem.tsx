@@ -14,25 +14,27 @@ export function CartItem({ item, index }: CartItemProps) {
 	};
 
 	return (
-		<div className="flex">
+		<div className="flex mb-4">
 			<div className="flex-grow">
 				<div>{item.name}</div>
-				<Price currencyIcon="TRY" value={item.price} />
+				<Price
+					currencyIcon="TRY"
+					value={item.price}
+					className="text-blue-light"
+				/>
 			</div>
-			<div>
+			<div className="flex items-center">
 				<span
-					className="cursor-pointer"
+					className="cursor-pointer text-blue-light text-2xl"
 					onClick={() => handleItemRemove(index)}
-				>
-					-
+				>-</span>
+				<span className="ml-2 bg-blue-light text-white py-1 px-2">
+					{item.count}
 				</span>
-				<span>{item.count}</span>
 				<span
-					className="cursor-pointer"
+					className="cursor-pointer ml-2 text-blue-light text-2xl"
 					onClick={() => handleItemAdd(index)}
-				>
-					+
-				</span>
+				>+</span>
 			</div>
 		</div>
 	);
