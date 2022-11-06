@@ -7,15 +7,28 @@ export function Pagination({ pageCount, onPageChange, activePage }: PaginationPr
 
 	return (
 		<ReactPaginate
-			className="flex h-40px items-center"
-			pageLinkClassName="p-12px"
+			className="flex h-5 items-center"
+			pageLinkClassName="px-3 py-2"
+			nextClassName="ml-4"
+			previousClassName="mr-4"
 			activeClassName="bg-blue-light text-white"
 			forcePage={activePage}
 			breakLabel="..."
-			nextLabel="next >"
 			onPageChange={handlePageChange}
 			pageCount={pageCount}
-			previousLabel="< previous"
+			
+			nextLabel={
+				<div className="flex">
+					<img src="./arrow-right.png" className="mr-3" alt="" />
+					<span>Next</span>
+				</div>
+			}
+			previousLabel={
+				<div className="flex">
+					<img src="./arrow-left.png" className="mr-3" alt="" />
+					<span className="text-blue-light">Prev</span>
+				</div>
+			}
 			renderOnZeroPageCount={null as any}
 		/>
 	);
