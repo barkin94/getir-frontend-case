@@ -24,17 +24,17 @@ export function CartItem({ item, index }: CartItemProps) {
 				/>
 			</div>
 			<div className="flex items-center">
-				<span
-					className="cursor-pointer text-blue-light text-2xl"
+				<button
+					className="text-blue-light text-2xl"
 					onClick={() => handleItemRemove(index)}
-				>-</span>
+				>-</button>
 				<span className="ml-2 bg-blue-light text-white py-1 px-2">
 					{item.count}
 				</span>
-				<span
-					className="cursor-pointer ml-2 text-blue-light text-2xl"
+				<button
+					className="ml-2 text-blue-light text-2xl"
 					onClick={() => handleItemAdd(index)}
-				>+</span>
+				>+</button>
 			</div>
 		</div>
 	);

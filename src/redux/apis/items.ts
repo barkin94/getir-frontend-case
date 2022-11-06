@@ -16,6 +16,7 @@ export const itemsApi = createApi({
 				return resource;
 			},
 			transformResponse: (items: Item[], meta) => {
+				// TODO: Filters don't affect X-Total-Count. Fix later
 				const totalCount = parseInt(meta!.response!.headers.get("X-Total-Count") || '') ;
 				return {
 					result: items,
