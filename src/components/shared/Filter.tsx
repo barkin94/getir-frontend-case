@@ -15,11 +15,11 @@ export function Filter({
 	const [checkedIndexes, setCheckedIndexes] = useState(new Set<number>());
 	
 	useEffect(() => {
-		const checkedIndexes = sortedFilterItems
-			.filter(item => item.checked)
-			.map((item, index) => index);
+		const checkedIndexes = new Set<number>()
+		sortedFilterItems
+			.forEach((item,index) => item.checked && checkedIndexes.add(index))
 		
-		setCheckedIndexes(new Set(checkedIndexes));
+		setCheckedIndexes(checkedIndexes);
 	}, [sortedFilterItems]);
 
 	const [hiddenIndexes, setHiddenIndexes] = useState(new Set<number>());
