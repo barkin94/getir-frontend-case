@@ -1,6 +1,6 @@
-import { useAppDispatch } from "../../../redux/hooks";
-import { CartItemDetail, decreaseItemCountByIndex, increaseItemCountByIndex } from "../../../redux/slices/cart"
-import { Price } from "../../shared/Price";
+import { useAppDispatch } from "../../../../redux/hooks";
+import { CartItemDetail, decreaseItemCountByIndex, increaseItemCountByIndex } from "../../../../redux/slices/cart"
+import { Price } from "../../../shared/Price";
 
 export function CartItem({ item, index }: CartItemProps) {
 	const dispatch = useAppDispatch();

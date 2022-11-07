@@ -1,12 +1,12 @@
 import { useSearchParams } from "react-router-dom";
-import { SortingOptions } from "../../../redux/helpers";
+import { SortingOptions } from "../../../../redux/helpers";
 
 import {
 	RadioList,
 	RadioNewSelection,
 	RadioListProps,
-} from "../../shared/RadioList";
-import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
+} from "../../../shared/RadioList";
+import { WhiteBoxContainer } from "../../../shared/WhiteBoxContainer";
 
 export function Sorting() {
 	const [searchParams, setSearchParams] = useSearchParams();

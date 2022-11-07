@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setCartModalVisibility } from "../../redux/slices/cart";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { setCartModalVisibility } from "../../../redux/slices/cart";
 import { Cart } from "./Cart/Cart";
-import { Price } from "../shared/Price";
+import { Price } from "../../shared/Price";
 
 export function Header() {
 	const { totalCost, modalVisible} = useAppSelector(state => state.cart);

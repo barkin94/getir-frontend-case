@@ -1,9 +1,9 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useGetBrandsQuery } from "../../../redux/apis/companies";
-import { Filter, FilterItem } from "../../shared/Filter";
-import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
+import { useGetBrandsQuery } from "../../../../redux/apis/companies";
+import { Filter, FilterItem } from "../../../shared/Filter";
+import { WhiteBoxContainer } from "../../../shared/WhiteBoxContainer";
 
 export function Brands() {
 	const { data } = useGetBrandsQuery();

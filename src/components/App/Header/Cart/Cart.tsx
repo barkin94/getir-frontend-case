@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { setCartModalVisibility } from "../../../redux/slices/cart";
-import { Price } from "../../shared/Price";
-import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
+import { setCartModalVisibility } from "../../../../redux/slices/cart";
+import { Price } from "../../../shared/Price";
+import { WhiteBoxContainer } from "../../../shared/WhiteBoxContainer";
 import { CartItem } from "./CartItem";
 
 export function Cart() {

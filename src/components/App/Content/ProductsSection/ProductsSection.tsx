@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Item } from "../../../core/models/item";
-import { useGetItemsQuery } from "../../../redux/apis/items";
-import { FilterOptions } from "../../../redux/helpers";
-import { Pagination } from "../../shared/Pagination";
-import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
+import { Item } from "../../../../core/models/item";
+import { useGetItemsQuery } from "../../../../redux/apis/items";
+import { FilterOptions } from "../../../../redux/helpers";
+import { Pagination } from "../../../shared/Pagination";
+import { WhiteBoxContainer } from "../../../shared/WhiteBoxContainer";
 import { ProductShowcase } from "./ProductShowcase";
 import { ProductTypeSelection } from "./ProductTypeSelection";
 
