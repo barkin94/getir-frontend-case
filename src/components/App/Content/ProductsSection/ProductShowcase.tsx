@@ -1,7 +1,7 @@
 import { Item } from "../../../../core/models/item";
 import { useAppDispatch } from "../../../../redux/hooks";
 import { addItemToCart } from "../../../../redux/slices/cart";
-import { Price } from "../../../shared/Price";
+import { Price } from "../../../shared/Price/Price";
 
 export function ProductShowcase({ item }: ProductShowcaseProps) {
 	const dispatch = useAppDispatch();

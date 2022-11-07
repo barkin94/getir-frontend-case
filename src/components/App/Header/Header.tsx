@@ -1,16 +1,17 @@
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setCartModalVisibility } from "../../../redux/slices/cart";
 import { Cart } from "./Cart/Cart";
-import { Price } from "../../shared/Price";
+import { Price } from "../../shared/Price/Price";
 
 export function Header() {
-	const { totalCost, modalVisible} = useAppSelector(state => state.cart);
+	const { totalCost, modalVisible } = useAppSelector(state => state.cart);
 	const dispatch = useAppDispatch();
 
 	return (
-		<div className="relative flex items-center justify-center bg-blue-light h-76px">
-			<img className="h-40px" src="./Logo.png" alt="" />
+		<div data-testid="header" className="relative flex items-center justify-center bg-blue-light h-76px">
+			<img className="h-40px" src="./Logo.png" alt="market-logo" />
 			<div
+				data-testid="cart-summary"
 				onMouseEnter={() => dispatch(setCartModalVisibility(true))}
 				onMouseLeave={() => dispatch(setCartModalVisibility(false))}
 				style={{ width: 100 }}
@@ -20,7 +21,7 @@ export function Header() {
 				items-center justify-center
 				cursor-pointer`}
 			>
-				<img src="./cart.png" alt="" />
+				<img src="./cart.png" alt="cart-icon" />
 				<Price
 					value={totalCost}
 					currencyIcon="TRY"

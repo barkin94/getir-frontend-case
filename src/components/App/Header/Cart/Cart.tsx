@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import { setCartModalVisibility } from "../../../../redux/slices/cart";
-import { Price } from "../../../shared/Price";
+import { Price } from "../../../shared/Price/Price";
 import { WhiteBoxContainer } from "../../../shared/WhiteBoxContainer";
 import { CartItem } from "./CartItem";
 
@@ -10,6 +10,7 @@ export function Cart() {
 
 	return (
 		<div
+			data-testid="cart-modal"
 			onMouseEnter={() => dispatch(setCartModalVisibility(true))}
 			onMouseLeave={() => dispatch(setCartModalVisibility(false))}
 		>

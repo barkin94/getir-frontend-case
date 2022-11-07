@@ -5,7 +5,7 @@ export function Price({ currencyIcon, value, className }: PriceProps) {
 		USD: "$",
 	};
 	return (
-		<div className={className}>
+		<div data-testid="price" className={className}>
 			{`${currencyIcons[currencyIcon]} ${value}`}
 		</div>
 	);

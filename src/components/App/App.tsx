@@ -7,7 +7,7 @@ function App() {
 	return (
 		<div className="bg-grey-light-4 flex flex-col min-h-screen">
 			<Header />
-			<section className="flex-grow">
+			<section data-testid="content" className="flex-grow">
 				<Content />
 			</section>
 			<Footer />
