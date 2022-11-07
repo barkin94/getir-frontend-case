@@ -1,4 +1,3 @@
-import { Route, Routes } from "react-router-dom";
 import { Content } from "./Content/Content";
 import { Footer } from "./Footer";
 import { Header } from "./Header/Header";
