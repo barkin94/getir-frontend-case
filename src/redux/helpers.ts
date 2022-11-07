@@ -32,19 +32,19 @@ export interface GenericQuery<T> {
 	filters?: FilterOptions<T>[];
 }
 
-export interface GenericPagingResponse<T> {
-	result: T[],
-	count: number
+export interface GenericPagingResponse<ResultType> {
+	result: ResultType[];
+	count: number;
 }
 
-export interface SortingOptions<T = any> {
+export interface SortingOptions<Model = any> {
 	type: "asc" | "desc";
-	field: keyof T;
+	field: keyof Model;
 }
 
 export interface FilterOptions<T = any> {
 	field: keyof T;
-	value: string;
+	value: any;
 }
 
 export interface PagingOptions {

@@ -1,5 +1,6 @@
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useGetBrandsQuery } from "../../../redux/apis/companies";
 import { Filter, FilterItem } from "../../shared/Filter";
 import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
@@ -7,13 +8,34 @@ import { WhiteBoxContainer } from "../../shared/WhiteBoxContainer";
 export function Brands() {
 	const { data } = useGetBrandsQuery();
 
-	const filterItems = useMemo<FilterItem[]>(() => data
-		? Object.keys(data).map(tagName => ({
-				name: tagName,
-				count: data[tagName],
-			}))
-		: []
-	, [data])
+	const [searchParams, setSearchParams] = useSearchParams();
+	const [activeBrands, setActiveBrands] = useState(
+		new Set((searchParams.get("b")?.split(",") || []))
+	);
+
+	const filterItems = useMemo<FilterItem[]>(
+		() =>
+			data
+				? Object.keys(data).map((tagName) => ({
+						name: tagName,
+						count: data[tagName],
+						checked: activeBrands.has(tagName),
+				  }))
+				: [],
+		[data, activeBrands]
+	);
+
+	const handleFilterChanges = (checkedIndexes: Set<number>) => {
+		const selectedBrandNames = Array.from(checkedIndexes).map(index => filterItems[index].name)
+		selectedBrandNames.length
+			? searchParams.set("b", selectedBrandNames.join(','))
+			: searchParams.delete("b");
+	
+		setSearchParams(searchParams);
+		setActiveBrands(
+			new Set(searchParams.get("b")?.split(",") || [])
+		);
+	}
 
 	return (
 		<>
@@ -25,6 +47,7 @@ export function Brands() {
 					<Filter
 						filterItems={filterItems}
 						searchPlaceholder="Search brand"
+						onCheckedFiltersChanged={handleFilterChanges}
 					/>
 				</WhiteBoxContainer>
 			</div>
