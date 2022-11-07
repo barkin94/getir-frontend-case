@@ -5,11 +5,11 @@ import { Header } from "./Header/Header";
 
 function App() {
 	return (
-		<div className="bg-grey-light-4">
+		<div className="bg-grey-light-4 flex flex-col min-h-screen">
 			<Header />
-			<Routes>
-				<Route path="/" element={<Content />} />
-			</Routes>
+			<section className="flex-grow">
+				<Content />
+			</section>
 			<Footer />
 		</div>
 	);
