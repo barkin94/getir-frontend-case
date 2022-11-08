@@ -1,5 +1,3 @@
-import { itemsApi } from "../../redux/apis/items";
-
 export function CheckBox({ label, checked, onClick }: CheckBoxProps) {
 
 	const handleClick = () => {
