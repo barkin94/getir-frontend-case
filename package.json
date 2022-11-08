@@ -24,8 +24,8 @@
     "json-server": "^0.17.1"
   },
   "scripts": {
-    "dev": "react-scripts start",
-	"server": "node server-start.js",
+    "dev:front": "react-scripts start",
+	"dev:back": "node server-start.js",
     "start": "npm run build && npm run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
