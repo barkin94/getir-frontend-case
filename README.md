@@ -22,7 +22,11 @@ Launches json-server on (http://localhost:3001).
 
 ### `npm start`
 
-Builds the frontend app, then launces json-server that serves the frontend build. Meant to be used in production.
+Builds the frontend app, then launces a deamonized json-server that serves the frontend build. Meant to be used in production.
+
+### `npm run stop`
+
+Kills the daemonized json-server.
 
 ### `npm test`
 
