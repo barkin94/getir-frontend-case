@@ -35,12 +35,25 @@ export function RadioList<ValueType>({
 		<>
 			{radioItems.map((item, index) => (
 				<div className="mb-2" key={index}>
-					<label>
-						<input
-							type="radio"
-							checked={item.checked}
-							onChange={(e) => handleClick(item)}
-						/>
+					<label
+						className="flex items-center cursor-pointer"
+						onClick={() => handleClick(item)}
+					>
+						<div
+							className={`rounded-full flex items-center justify-center border-grey-light-3 border-2  ${
+								item.checked && "border-blue-light"
+							}`}
+							style={{
+								margin: 5,
+								height: 22,
+								width: 22,
+								minWidth: 20,
+							}}
+						>
+							{item.checked && (
+								<img style={ {height: 9, marginTop: 2 } } src="./check-blue.png" alt="" />
+							)}
+						</div>
 						<span className="ml-3 text-grey-dark-2">
 							{item.label}
 						</span>

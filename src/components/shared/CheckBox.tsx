@@ -1,3 +1,5 @@
+import { itemsApi } from "../../redux/apis/items";
+
 export function CheckBox({ label, checked, onClick }: CheckBoxProps) {
 
 	const handleClick = () => {
@@ -22,7 +24,7 @@ export function CheckBox({ label, checked, onClick }: CheckBoxProps) {
 						boxShadow: "0px 1px 7px rgba(93, 56, 192, 0.4)",
 					}}
 				>
-					<img src="./check.png" alt="" />
+					{checked && <img src="./check.png" alt="" />}
 				</div>
 				<span className="ml-2">{label}</span>
 			</div>
