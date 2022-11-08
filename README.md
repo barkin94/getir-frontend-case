@@ -2,13 +2,15 @@
 
 This is a case project for Getir to showcase a catalog page of a generic E-Commerce web application. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template. Also, json-server was used to feed the app.
 
-To run the application on your local environment Run `npm run dev:front` and `npm run dev:back` concurrently.
+To run the application on your local environment Run `npm start` and `npm run start-cra` concurrently.
+
+Live Demo: https://getir-frontend-case.herokuapp.com
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm run dev:front`
+### `npm run start-cra`
 
 Runs the app in the through Create React App.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -16,17 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm run dev:back`
+### `npm run start`
 
 Launches json-server on (http://localhost:3001).
 
-### `npm start`
-
-Builds the frontend app, then launces a deamonized json-server that serves the frontend build. Meant to be used in production.
-
-### `npm run stop`
-
-Kills the daemonized json-server.
 
 ### `npm test`
 
