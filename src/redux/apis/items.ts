@@ -5,7 +5,9 @@ import { GenericPagingResponse, GenericQuery, makeJsonServerQuery } from "../hel
 // Define a service using a base URL and expected endpoints
 export const itemsApi = createApi({
 	reducerPath: "itemsApi",
-	baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
+	baseQuery: fetchBaseQuery({
+		baseUrl: process.env.REACT_APP_BASEURL || "http://localhost:3001",
+	}),
 	endpoints: (builder) => ({
 		getItems: builder.query<GenericPagingResponse<Item>,GenericQuery<Item>>({
 			query: (query) => {
@@ -17,7 +19,9 @@ export const itemsApi = createApi({
 			},
 			transformResponse: (items: Item[], meta) => {
 				// TODO: Filters don't affect X-Total-Count. Fix later
-				const totalCount = parseInt(meta!.response!.headers.get("X-Total-Count") || '') ;
+				const totalCount = parseInt(
+					meta!.response!.headers.get("X-Total-Count") || ""
+				);
 				return {
 					result: items,
 					count: totalCount,

@@ -22,8 +22,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "concurrently \"json-server ./json-server/index.js --port 3001\" \"react-scripts start\"",
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+	"server": "node server-start.js",
+    "start": "npm run build && npm run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
