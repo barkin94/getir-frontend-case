@@ -34,7 +34,7 @@ export function RadioList<ValueType>({
 	return (
 		<>
 			{radioItems.map((item, index) => (
-				<div className="mb-2" key={index}>
+				<div className={`flex ${display === "block" ? 'flex-col mb-2' : 'mr-2'}`} key={index}>
 					<label
 						className="flex items-center cursor-pointer"
 						onClick={() => handleClick(item)}
@@ -51,14 +51,17 @@ export function RadioList<ValueType>({
 							}}
 						>
 							{item.checked && (
-								<img style={ {height: 9, marginTop: 2 } } src="./check-blue.png" alt="" />
+								<img
+									style={{ height: 9, marginTop: 2 }}
+									src="./check-blue.png"
+									alt=""
+								/>
 							)}
 						</div>
 						<span className="ml-3 text-grey-dark-2">
 							{item.label}
 						</span>
 					</label>
-					{display === "block" && <br />}
 				</div>
 			))}
 		</>
